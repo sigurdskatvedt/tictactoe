@@ -1,13 +1,56 @@
 <!DOCTYPE html>
 <html>
-    <header>
-        <title>Tic Tac Toe</title>
-        <link rel="stylesheet" href="style.css" type="text/css">
-    </header>
-    <body>
-        <div>
-            <script src="main.js"></script>
+  <header>
+    <title>Tic Tac Toe</title
+    ><link rel="stylesheet" href="style.css" type="text/css" />
+  </header>
+  <body>
+    <div>
+      <script src="main.js"></script>
+      <section>
+        <div class="player-info" id="player1">
+          <p class="name-info">Navn spiller 1:</p>
+          <input id="player1Name" />
+          <button
+            className="name-submit"
+            id="player1-submit"
+            onclick="playerNameChange('player1')"
+          >
+            Send
+          </button>
         </div>
-    </body>
+        <div class="player-info" id="player2">
+          <p class="name-info">Navn spiller 2:</p>
+          <input id="player2Name" />
+          <button
+            className="name-submit"
+            id="player2-submit"
+            onclick="playerNameChange('player2')"
+          >
+            Send
+          </button>
+        </div>
+      </section>
+      <table>
+        <tr>
+          <td id="1-1" onClick="boxClick(0,0,this)"><p></p></td>
+          <td id="1-2" onClick="boxClick(0,1,this)"><p></p></td>
+          <td id="1-3" onClick="boxClick(0,2,this)"><p></p></td>
+        </tr>
+        <tr>
+          <td id="2-1" onClick="boxClick(1,0,this)"><p></p></td>
+          <td id="2-2" onClick="boxClick(1,1,this)"><p></p></td>
+          <td id="2-3" onClick="boxClick(1,2,this)"><p></p></td>
+        </tr>
+        <tr>
+          <td id="3-1" onClick="boxClick(2,0,this)"><p></p></td>
+          <td id="3-2" onClick="boxClick(2,1,this)"><p></p></td>
+          <td id="3-3" onClick="boxClick(2,2,this)"><p></p></td>
+        </tr>
+      </table>
+      <article id="winner-field">
+        <p>No one has won yet!</p>
+      </article>
+    </div>
+  </body>
 </html>
-

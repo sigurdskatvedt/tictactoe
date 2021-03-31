@@ -22,19 +22,19 @@ function boxClick(row, column, element) {
   if (this.player1 == null || this.player2 == null) {
     throw new Error("Please give players a name first.");
   }
-  console.log(gameboard.boardArray[row][column]);
+  console.log(element.querySelector("p"));
   if (gameboard.boardArray[row][column] != null) {
     console.log("Field already filled!");
   } else if (turnCounter % 2 === 1) {
     gameboard.boardArray[row][column] = player1;
     winCheck(this.player1);
     turnCounter++;
-    element.childNodes[0].innerHTML = "X";
+    element.querySelector("p").textContent = "X";
   } else {
     gameboard.boardArray[row][column] = player2;
     winCheck(this.player2);
     turnCounter++;
-    element.childNodes[0].innerHTML = "O";
+    element.querySelector("p").textContent = "O";
   }
 }
 
@@ -44,10 +44,11 @@ function gameReset() {
     [null, null, null],
     [null, null, null],
   ];
-  document.getElementById("game-table").childNodes.forEach((value) => {
-    console.log(value);
-    value.textContent = "";
-  });
+  Array.from(document.getElementsByClassName("choice-field")).forEach(
+    (field) => {
+      field.innerHTML = "<p></p>";
+    }
+  );
   document.getElementById("winner-text").textContent = "No one has won yet.";
 }
 

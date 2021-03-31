@@ -29,9 +29,10 @@
           >
             Send
           </button>
+          <button id="reset-button" onClick="gameReset()">Reset</button>
         </div>
       </section>
-      <table>
+      <table id="game-table">
         <tr>
           <td id="1-1" onClick="boxClick(0,0,this)"><p></p></td>
           <td id="1-2" onClick="boxClick(0,1,this)"><p></p></td>
@@ -49,7 +50,7 @@
         </tr>
       </table>
       <article id="winner-field">
-        <p>No one has won yet!</p>
+        <p id="winner-text">No one has won yet!</p>
       </article>
     </div>
   </body>

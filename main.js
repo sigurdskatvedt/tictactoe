@@ -1,4 +1,4 @@
-// Tekst oppdaterer seg ikke
+//Reset fungerer ikke
 let turnCounter = 1;
 const player1 = "Player 1";
 const player2 = "Player 2";
@@ -15,11 +15,8 @@ const gameboard = (() => {
 })();
 
 const player = (name, age) => {
-  console.log(`New player added! Name: ${name}. Age: ${age}`);
   return { name, age };
 };
-
-const sigurd = player("Sigurd", "21");
 
 function boxClick(row, column, element) {
   if (this.player1 == null || this.player2 == null) {
@@ -30,15 +27,28 @@ function boxClick(row, column, element) {
     console.log("Field already filled!");
   } else if (turnCounter % 2 === 1) {
     gameboard.boardArray[row][column] = player1;
-    winCheck(player1);
+    winCheck(this.player1);
     turnCounter++;
     element.childNodes[0].innerHTML = "X";
   } else {
     gameboard.boardArray[row][column] = player2;
-    winCheck(player2);
+    winCheck(this.player2);
     turnCounter++;
     element.childNodes[0].innerHTML = "O";
   }
+}
+
+function gameReset() {
+  gameboard.boardArray = [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null],
+  ];
+  document.getElementById("game-table").childNodes.forEach((value) => {
+    console.log(value);
+    value.textContent = "";
+  });
+  document.getElementById("winner-text").textContent = "No one has won yet.";
 }
 
 function playerNameChange(currentPlayer) {
@@ -69,7 +79,8 @@ function winCheck(currentPlayer) {
 }
 
 function giveWinner(currentPlayer) {
+  console.log(document.getElementById("winner-field").childNodes[0].innerHTML);
   document.getElementById(
-    "winner-field"
-  ).childNodes[0].innerHTML = `Winner is ${currentPlayer}!`;
+    "winner-text"
+  ).textContent = `Winner is ${currentPlayer}!`;
 }

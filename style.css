@@ -1,11 +1,11 @@
 body {
-  padding:2%;
-  margin:0;
+  padding: 2%;
+  margin: 0;
   width: 96%;
 }
 table {
   margin-top: 10px;
-  width:100%;
+  width: 100%;
   border-collapse: collapse;
 }
 
@@ -14,24 +14,25 @@ td {
   border: 1px solid #cecfd5;
   padding: 10px 15px;
   width: 30%;
-  height:150px;
+  height: 150px;
 }
 
-td, p {
+td,
+p {
   text-align: center;
   font-size: 170%;
 }
 
 .name-info {
-  display:inline;
+  display: inline;
 }
 
 .player-info {
-  display:inline;
+  display: inline;
 }
 
 #player2 {
-  float: right;
+  float: center;
 }
 
 #winner-field {
@@ -44,4 +45,8 @@ td, p {
 
 #winner-field p {
   font-size: 20px;
+}
+
+#reset-button {
+  float: right;
 }
